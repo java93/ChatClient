@@ -40,7 +40,7 @@ public class LoginController {
         int port = Integer.parseInt(portTextField.getText().trim());
         String username = usernameTextField.getText();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("chatView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/chatView.fxml"));
         Parent parent = fxmlLoader.load();
         controller = fxmlLoader.getController();
         Listener listener = new Listener(hostname, port, username, controller);
