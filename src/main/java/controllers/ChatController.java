@@ -62,6 +62,8 @@ public class ChatController {
     }
 
     public void setUserList(Message message) {
+        System.out.println(message.getName() + " connected");
+        System.out.println("Online" + message.getUsers());
         // TODO: add userlist management
     }
 }

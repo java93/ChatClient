@@ -61,7 +61,7 @@ public class Listener implements Runnable {
                             controller.setUserList(message);
                             break;
                         case SERVER:
-                            controller.addAsServer(message);
+//                            controller.addAsServer(message);
                     }
                 }
             }

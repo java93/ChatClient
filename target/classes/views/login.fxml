@@ -27,12 +27,12 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="hostnameTextField" layoutX="327.0" layoutY="177.0" prefHeight="34.0" prefWidth="234.0" promptText="hostname">
+      <TextField fx:id="hostnameTextField" layoutX="327.0" layoutY="177.0" prefHeight="34.0" prefWidth="234.0" promptText="hostname" text="127.0.0.1">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <TextField fx:id="portTextField" layoutX="327.0" layoutY="221.0" prefHeight="34.0" prefWidth="234.0" promptText="port">
+      <TextField fx:id="portTextField" layoutX="327.0" layoutY="221.0" prefHeight="34.0" prefWidth="234.0" promptText="port" text="4444">
          <font>
             <Font size="18.0" />
          </font>
