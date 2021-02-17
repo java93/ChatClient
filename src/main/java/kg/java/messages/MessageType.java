@@ -1,4 +1,4 @@
-package messages;
+package kg.java.messages;
 
 public enum MessageType {
     DISCONNECTED,

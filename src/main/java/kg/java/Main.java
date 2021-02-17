@@ -1,20 +1,20 @@
-package sample;
+package kg.java;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.util.Objects;
+import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root;
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("views/login.fxml")));
+        root = FXMLLoader.load(getClass().getResource("login.fxml"));
         primaryStage.setTitle("Login");
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

@@ -1,21 +1,19 @@
-package controllers;
+package kg.java.controllers;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import services.Listener;
+import kg.java.services.Listener;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class LoginController {
 
@@ -42,13 +40,19 @@ public class LoginController {
         int port = Integer.parseInt(portTextField.getText().trim());
         String username = usernameTextField.getText();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/chatView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("chatView.fxml"));
         Parent parent = fxmlLoader.load();
         controller = fxmlLoader.getController();
         Listener listener = new Listener(hostname, port, username, controller);
         Thread th = new Thread(listener);
         th.start();
         this.scene = new Scene(parent);
+    }
+
+    @FXML
+    void close(MouseEvent event) {
+        Platform.exit();
+        System.exit(0);
     }
 
     public void showScene(){

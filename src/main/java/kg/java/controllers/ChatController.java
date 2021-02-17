@@ -1,4 +1,4 @@
-package controllers;
+package kg.java.controllers;
 
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
-import messages.Message;
+import kg.java.messages.Message;
 
 public class ChatController {
 

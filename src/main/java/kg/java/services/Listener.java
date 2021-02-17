@@ -1,10 +1,9 @@
-package services;
+package kg.java.services;
 
-import controllers.ChatController;
-import controllers.LoginController;
-import jdk.internal.util.xml.impl.Input;
-import messages.Message;
-import messages.MessageType;
+import kg.java.controllers.ChatController;
+import kg.java.controllers.LoginController;
+import kg.java.messages.Message;
+import kg.java.messages.MessageType;
 
 import java.io.*;
 import java.net.Socket;
