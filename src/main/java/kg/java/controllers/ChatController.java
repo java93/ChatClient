@@ -1,5 +1,6 @@
 package kg.java.controllers;
 
+import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,7 +20,7 @@ public class ChatController {
     private ListView usersListView;
 
     @FXML
-    private ListView messageListView;
+    private ListView<HBox> messageListView;
 
     @FXML
     private TextArea messageTextArea;
@@ -65,5 +66,8 @@ public class ChatController {
         System.out.println(message.getName() + " connected");
         System.out.println("Online" + message.getUsers());
         // TODO: add userlist management
+        onlineUsersCountLabel.setText(String.valueOf(message.getOnlineCount()));
+        ObservableList items = usersListView.getItems();
+        message.getUsers().stream().map(Label::new).forEach(items::add);
     }
 }

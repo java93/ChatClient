@@ -14,8 +14,8 @@ public class Listener implements Runnable {
     private static final String HASCONNECTED = "has connected";
 
     private Socket socket;
-    private String hostname;
-    private int port;
+    private final String hostname;
+    private final int port;
     private static String username;
     private ChatController controller;
     private static ObjectOutputStream oos;
