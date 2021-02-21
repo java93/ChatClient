@@ -1,15 +1,22 @@
 package kg.java.controllers;
 
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import kg.java.messages.Message;
+import kg.java.messages.MessageType;
+import kg.java.services.Listener;
+
+import java.util.List;
 
 public class ChatController {
 
@@ -39,7 +46,23 @@ public class ChatController {
 
     @FXML
     void sendMessage(ActionEvent event) {
+        Message message = new Message();
+        message.setName(usernameLabel.getText());
+        message.setType(MessageType.USER);
+        message.setMsg(messageTextArea.getText());
+        messageTextArea.setText("");
+        Listener.sendMessage(message);
+    }
 
+    @FXML
+    void exitProgram(MouseEvent event) {
+        Message message = new Message();
+        message.setName(usernameLabel.getText());
+        message.setType(MessageType.DISCONNECTED);
+        Listener.sendMessage(message);
+
+        Platform.exit();
+        System.exit(0);
     }
 
     public void setUsernameLabel(String username) {

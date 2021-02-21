@@ -31,7 +31,6 @@ public class Listener implements Runnable {
     }
 
     public void run() {
-
         try {
             socket = new Socket(hostname, port);
             LoginController.getInstance().showScene();
@@ -69,8 +68,6 @@ public class Listener implements Runnable {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
-
     }
 
     /*This method is first message to server for connecting*/
@@ -81,5 +78,15 @@ public class Listener implements Runnable {
         message.setMsg(HASCONNECTED);
 
         oos.writeObject(message);
+    }
+
+    public static void sendMessage(Message message) {
+        try {
+            oos.writeObject(message);
+            oos.flush();
+            oos.reset();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

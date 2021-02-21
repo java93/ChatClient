@@ -4,5 +4,6 @@ public enum MessageType {
     DISCONNECTED,
     CONNECTED,
     USER,
-    SERVER
+    SERVER,
+    NOTIFICATION
 }
