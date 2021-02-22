@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -24,7 +25,7 @@ public class ChatController {
     private Label onlineUsersCountLabel;
 
     @FXML
-    private ListView usersListView;
+    private ListView<Label> usersListView;
 
     @FXML
     private ListView<HBox> messageListView;
@@ -70,7 +71,7 @@ public class ChatController {
     }
 
     public synchronized void addToChat(Message message) {
-        Task<HBox> messages = new Task<HBox>() {
+        /*Task<HBox> messages = new Task<HBox>() {
             @Override
             protected HBox call() throws Exception {
                 Label label = new Label(message.getName() + " : " + message.getMsg());
@@ -82,15 +83,24 @@ public class ChatController {
 
         messages.setOnSucceeded(event->{
             messageListView.getItems().add(messages.getValue());
-        });
+        });*/
+        HBox hBox = new HBox();
+        if (message.getName().equals(usernameLabel.getText())) {
+            hBox.setAlignment(Pos.CENTER_RIGHT);
+        }
+        Label msg = new Label(message.getName() + " : " + message.getMsg());
+        hBox.getChildren().add(msg);
+
+        messageListView.getItems().add(hBox);
+
+        setUserList(message);
     }
 
     public void setUserList(Message message) {
-        System.out.println(message.getName() + " connected");
-        System.out.println("Online" + message.getUsers());
         // TODO: add userlist management
-        onlineUsersCountLabel.setText(String.valueOf(message.getOnlineCount()));
-        ObservableList items = usersListView.getItems();
+        onlineUsersCountLabel.setText(String.valueOf(message.getUsers().size()));
+        ObservableList<Label> items = usersListView.getItems();
+        items.clear();
         message.getUsers().stream().map(Label::new).forEach(items::add);
     }
 }

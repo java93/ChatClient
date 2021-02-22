@@ -56,6 +56,8 @@ public class Listener implements Runnable {
                             break;
                         case CONNECTED:
                         case DISCONNECTED:
+                            System.out.println(message.getName() + " " + message.getType());
+                            System.out.println("Online: " + message.getUsers());
                             controller.setUserList(message);
                             break;
                         case SERVER:
