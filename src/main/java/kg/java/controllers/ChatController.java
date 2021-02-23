@@ -98,9 +98,14 @@ public class ChatController {
 
     public void setUserList(Message message) {
         // TODO: add userlist management
-        onlineUsersCountLabel.setText(String.valueOf(message.getUsers().size()));
-        ObservableList<Label> items = usersListView.getItems();
-        items.clear();
-        message.getUsers().stream().map(Label::new).forEach(items::add);
+        System.out.println("UserList updating with users: " + message.getUsers());
+        Platform.runLater(() ->{
+            onlineUsersCountLabel.setText(String.valueOf(message.getUsers().size()));
+            ObservableList<Label> items = usersListView.getItems();
+            items.clear();
+            message.getUsers().stream().map(Label::new).forEach(items::add);
+        });
+
+
     }
 }
