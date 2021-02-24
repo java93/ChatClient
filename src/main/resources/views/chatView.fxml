@@ -69,7 +69,7 @@
       </VBox>
    </center>
    <top>
-      <BorderPane style="-fx-background-color: #96c3e0;" BorderPane.alignment="CENTER">
+      <BorderPane fx:id="bordarePaneTop" style="-fx-background-color: #96c3e0;" BorderPane.alignment="CENTER">
          <right>
             <HBox alignment="CENTER_RIGHT" BorderPane.alignment="CENTER">
                <children>

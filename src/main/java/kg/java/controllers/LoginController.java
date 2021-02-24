@@ -61,6 +61,7 @@ public class LoginController {
 
             stage.setScene(this.scene);
             stage.centerOnScreen();
+            ChatController.setStage(stage);
             controller.setUsernameLabel(usernameTextField.getText());
         });
     }
